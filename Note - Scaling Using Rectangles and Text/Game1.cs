@@ -8,9 +8,8 @@ namespace Note___Scaling_Using_Rectangles_and_Text
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private SpriteFont title;
-        private int score = 0;
-        // This first variable will store our font for drawing. The second variable, score will give us a value to draw to the screen.
+        private SpriteFont font;
+        // This variable ("font") will store our font for drawing
 
         Texture2D rectangleTexture, circleTexture;
         Rectangle circleRect, faceCirc, mouthRect, leftEyeCirc, rightEyeCirc;
@@ -42,7 +41,8 @@ namespace Note___Scaling_Using_Rectangles_and_Text
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             rectangleTexture = Content.Load<Texture2D>("rectangle");
             circleTexture = Content.Load<Texture2D>("circle");
-            title = Content.Load<SpriteFont>("File.spritefont"); 
+            font = Content.Load<SpriteFont>("Title"); // tutorial says to use the name of the sprite
+                                                                 // font file here, but it's not working?
         }
 
         protected override void Update(GameTime gameTime)
@@ -72,7 +72,7 @@ namespace Note___Scaling_Using_Rectangles_and_Text
             _spriteBatch.Draw(circleTexture, leftEyeCirc, Color.Black);
             _spriteBatch.Draw(circleTexture, rightEyeCirc, Color.Black);
 
-            _spriteBatch.DrawString(title, "score", new Vector2(100, 100), Color.Black);
+            _spriteBatch.DrawString(font, "You rule!!", new Vector2(100, 100), Color.Black);
 
             //_spriteBatch.Draw(circleTexture, circleRect, Color.Red);
 
